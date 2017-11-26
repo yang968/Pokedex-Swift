@@ -25,6 +25,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Using dequeueReusableCell to just load cells that are going to display.
         // When cells are out of display, they will be dequeued
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokemonCell {
+            
+            let pokemon = Pokemon(name: "Pokemon", pokedexId: indexPath.row + 1)
+            cell.configureCell(pokemon: pokemon)
+            
             return cell
         } else {
             return UICollectionViewCell()
@@ -36,7 +40,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 30
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -44,7 +48,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 110)
+        return CGSize(width: 105, height: 105)
     }
     
 }

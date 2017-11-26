@@ -15,11 +15,17 @@ class PokemonCell: UICollectionViewCell {
     
     var pokemon : Pokemon!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        layer.cornerRadius = 7.0
+    }
+    
     func configureCell(pokemon: Pokemon) {
         self.pokemon = pokemon
         
-        nameLabel.text = self.pokemon.name.capitalized
-        thumbImg.image = UIImage(named: "\(self.pokemon.pokedexId)")
+        nameLabel.text = pokemon.name.capitalized
+        thumbImg.image = UIImage(named: String(pokemon.pokedexId))
     }
     
 }
