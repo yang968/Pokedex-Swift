@@ -13,6 +13,9 @@
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
         </array>
+        <array key="pokemon.ttf">
+            <string>PokemonSolidNormal</string>
+        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -25,9 +28,35 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HrR-sA-041">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjF-IM-B8Q">
+                                        <rect key="frame" x="136" y="24" width="103" height="41"/>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="27"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghu-TB-Hcf">
+                                        <rect key="frame" x="339" y="30" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="HAc-PI-saw"/>
+                                            <constraint firstAttribute="height" constant="28" id="qJu-Po-Wal"/>
+                                        </constraints>
+                                        <state key="normal" image="music.png"/>
+                                        <connections>
+                                            <action selector="musicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gMU-IH-jgh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="ghu-TB-Hcf" firstAttribute="top" secondItem="HrR-sA-041" secondAttribute="top" constant="30" id="EEL-bX-iHY"/>
+                                    <constraint firstAttribute="trailing" secondItem="ghu-TB-Hcf" secondAttribute="trailing" constant="8" id="FM3-EX-1qz"/>
+                                    <constraint firstItem="ghu-TB-Hcf" firstAttribute="leading" secondItem="NjF-IM-B8Q" secondAttribute="trailing" constant="100" id="M0w-jg-Nuq"/>
+                                    <constraint firstItem="NjF-IM-B8Q" firstAttribute="leading" secondItem="HrR-sA-041" secondAttribute="leading" constant="136" id="ae3-QU-YbN"/>
+                                    <constraint firstItem="NjF-IM-B8Q" firstAttribute="top" secondItem="HrR-sA-041" secondAttribute="top" constant="24" id="lnp-md-XEe"/>
+                                    <constraint firstAttribute="bottom" secondItem="NjF-IM-B8Q" secondAttribute="bottom" id="pwD-5X-iH5"/>
                                     <constraint firstAttribute="height" constant="65" id="q6k-fl-HT9"/>
+                                    <constraint firstAttribute="bottom" secondItem="ghu-TB-Hcf" secondAttribute="bottom" constant="7" id="xWh-3r-QhF"/>
                                     <constraint firstAttribute="width" constant="375" id="xyh-xP-Kpc"/>
                                 </constraints>
                             </view>
@@ -122,5 +151,6 @@
     <resources>
         <image name="1" width="120" height="120"/>
         <image name="bg" width="1920" height="1200"/>
+        <image name="music.png" width="100" height="100"/>
     </resources>
 </document>
