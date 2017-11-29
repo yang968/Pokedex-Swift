@@ -11,7 +11,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
         </array>
         <array key="pokemon.ttf">
             <string>PokemonSolidNormal</string>
@@ -47,7 +47,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="ghu-TB-Hcf" firstAttribute="top" secondItem="HrR-sA-041" secondAttribute="top" constant="30" id="EEL-bX-iHY"/>
                                     <constraint firstAttribute="trailing" secondItem="ghu-TB-Hcf" secondAttribute="trailing" constant="8" id="FM3-EX-1qz"/>
@@ -60,7 +60,7 @@
                                     <constraint firstAttribute="width" constant="375" id="xyh-xP-Kpc"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="A4v-zg-qkn">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="A4v-zg-qkn">
                                 <rect key="frame" x="0.0" y="65" width="375" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="GxA-Qw-YCG"/>
@@ -96,8 +96,8 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bulbasaur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLP-ff-Nb9">
                                                     <rect key="frame" x="0.0" y="85" width="105" height="20"/>
-                                                    <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -141,11 +141,28 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="ly4-Mk-lU4" id="5vs-X2-dmM"/>
+                        <outlet property="searchBar" destination="A4v-zg-qkn" id="vAI-p3-xaa"/>
+                        <segue destination="026-x0-jh6" kind="show" identifier="PokemonSegue" id="Sy3-e5-z2R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+        <!--Pokemon View Controller-->
+        <scene sceneID="nPq-Vz-Sb1">
+            <objects>
+                <viewController id="026-x0-jh6" customClass="PokemonViewController" customModule="Pokedex_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xx4-fC-3Y8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="PJz-oN-BlY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W0o-2e-ptq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1161" y="133"/>
         </scene>
     </scenes>
     <resources>
