@@ -70,8 +70,8 @@
 		7004C83A1FCBE43700760C4A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7004C8431FCE433F00760C4A /* PokemonViewController.swift */,
 				70BED42A1FCA7D3300FA9DE5 /* ViewController.swift */,
+				7004C8431FCE433F00760C4A /* PokemonViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
