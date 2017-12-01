@@ -7,4 +7,5 @@ target 'Pokedex Swift' do
 
   # Pods for Pokedex Swift
 pod 'Alamofire', '~> 4.5'
+pod 'SwiftyJSON'
 end

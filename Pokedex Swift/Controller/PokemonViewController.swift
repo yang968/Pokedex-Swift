@@ -18,18 +18,38 @@ class PokemonViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var defLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
-    @IBOutlet weak var pokedexLabel: UILabel!
+    @IBOutlet weak var pokeIdLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var attackLabel: UILabel!
-    @IBOutlet weak var currentEvoImage: UIImageView!
-    @IBOutlet weak var nxtEvoImage: UIImageView!
-    @IBOutlet weak var evoLabel: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pokeIdLabel.text = String(pokemon.pokedexId)
+        nameLabel.text = pokemon.name.capitalized
+        
+        mainImage.image = UIImage(named: String(pokemon.pokedexId))
 
-        // Do any additional setup after loading the view.
+        pokemon.downloadDescription {
+            self.updateDescription()
+        }
+        pokemon.downloadPokemonInfo {
+            // Will be called after the network call is completed
+            print("I'm here")
+            self.updateStats()
+        }
+    }
+    
+    func updateDescription() {
+        descLabel.text = pokemon.description
+    }
+    
+    func updateStats() {
+        attackLabel.text = pokemon.attack
+        defLabel.text = pokemon.defense
+        heightLabel.text = pokemon.height
+        weightLabel.text = pokemon.weight
+        typeLabel.text = pokemon.type
     }
 
     @IBAction func backButtonPressed(_ sender: UIButton) {
