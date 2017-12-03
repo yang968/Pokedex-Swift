@@ -6,6 +6,7 @@ target 'Pokedex Swift' do
   use_frameworks!
 
   # Pods for Pokedex Swift
-pod 'Alamofire', '~> 4.5'
-pod 'SwiftyJSON'
+  pod 'Alamofire', '~> 4.5'
+  pod 'SwiftyJSON'
+  pod 'SVProgressHUD'
 end

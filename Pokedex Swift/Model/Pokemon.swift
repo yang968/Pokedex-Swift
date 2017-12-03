@@ -24,6 +24,8 @@ class Pokemon {
     var pokemonURL : String!
     var descURL : String!
     var evoChainURL : String!
+    var statsUpdated = false
+    var descUpdated = false
     
     let ATTACK_INDEX = 4
     let DEF_INDEX = 3
@@ -36,12 +38,13 @@ class Pokemon {
         self.descURL = URL_DESCRIPTION + String(pokedexId) + "/"
         
     }
-    
+    /*
     func downloadPokemonInfo(completed: @escaping DownloadComplete) {
         Alamofire.request(pokemonURL).responseJSON { (response) in
             if response.result.isSuccess {
                 let jsonData = JSON(response.result.value!)
                 self.updateStats(json: jsonData)
+                self.downloadDescription{}
             } else {
                 self.type = ""
                 self.defense = ""
@@ -59,12 +62,46 @@ class Pokemon {
             if response.result.isSuccess {
                 let jsonData = JSON(response.result.value!)
                 self.updateDescription(json: jsonData)
-                self.evoChainURL = jsonData["evolution_chain"]["url"].stringValue
-                print("evo: " + self.evoChainURL)
+                //self.evoChainURL = jsonData["evolution_chain"]["url"].stringValue
+                //print("evo: " + self.evoChainURL)
             } else {
                 self.description = "Failed to receive data"
             }
             completed()
+        }
+    }
+    */
+    
+    func downloadPokemonInfo(completed: @escaping DownloadComplete) {
+        Alamofire.request(pokemonURL).responseJSON { (response) in
+            if response.result.isSuccess {
+                let jsonData = JSON(response.result.value!)
+                self.updateStats(json: jsonData)
+            } else {
+                self.type = ""
+                self.defense = ""
+                self.height = ""
+                self.weight = ""
+                self.attack = ""
+                self.nxtEvolution = ""
+            }
+            self.statsUpdated = true
+            if self.statsUpdated && self.descUpdated {
+                completed()
+            }
+        }
+        
+        Alamofire.request(descURL).responseJSON { (response) in
+            if response.result.isSuccess {
+                let jsonData = JSON(response.result.value!)
+                self.updateDescription(json: jsonData)
+            } else {
+                self.description = "Failed to receive data"
+            }
+            self.descUpdated = true
+            if self.statsUpdated && self.descUpdated {
+                completed()
+            }
         }
     }
     

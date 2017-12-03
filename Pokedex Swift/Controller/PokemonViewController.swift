@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PokemonViewController: UIViewController {
 
@@ -29,15 +30,39 @@ class PokemonViewController: UIViewController {
         nameLabel.text = pokemon.name.capitalized
         
         mainImage.image = UIImage(named: String(pokemon.pokedexId))
-
-        pokemon.downloadDescription {
-            self.updateDescription()
-        }
-        pokemon.downloadPokemonInfo {
-            // Will be called after the network call is completed
-            print("I'm here")
+        
+        hideUI()
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.show()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.pokemon.downloadPokemonInfo {
             self.updateStats()
+            self.updateDescription()
+            self.showUI()
+            SVProgressHUD.dismiss()
         }
+    }
+    
+    func hideUI() {
+        descLabel.isHidden = true
+        typeLabel.isHidden = true
+        defLabel.isHidden = true
+        heightLabel.isHidden = true
+        pokeIdLabel.isHidden = true
+        weightLabel.isHidden = true
+        attackLabel.isHidden = true
+    }
+    
+    func showUI() {
+        descLabel.isHidden = false
+        typeLabel.isHidden = false
+        defLabel.isHidden = false
+        heightLabel.isHidden = false
+        pokeIdLabel.isHidden = false
+        weightLabel.isHidden = false
+        attackLabel.isHidden = false
     }
     
     func updateDescription() {
