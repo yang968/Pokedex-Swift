@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjF-IM-B8Q">
-                                        <rect key="frame" x="134.5" y="24" width="106.5" height="41"/>
+                                        <rect key="frame" x="135" y="24" width="106.5" height="41"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="27"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -362,14 +362,21 @@
                         <viewLayoutGuide key="safeArea" id="PJz-oN-BlY"/>
                     </view>
                     <connections>
+                        <outlet property="attackColorLabel" destination="ntA-ko-pEB" id="mcb-zm-ZRq"/>
                         <outlet property="attackLabel" destination="eMU-rY-fIO" id="O8I-NF-mdy"/>
                         <outlet property="defLabel" destination="qAe-KR-iPm" id="9Xt-wd-gmL"/>
+                        <outlet property="defenseColorLabel" destination="6Ez-OI-apv" id="kxf-rd-3E0"/>
                         <outlet property="descLabel" destination="7tf-LJ-6Ne" id="U5y-CU-DT0"/>
+                        <outlet property="heightColorLabel" destination="dNS-q8-shL" id="UFJ-JX-tLo"/>
                         <outlet property="heightLabel" destination="4vA-Vn-LB2" id="qmD-4N-Rbl"/>
                         <outlet property="mainImage" destination="Cjm-VZ-pWb" id="PY4-du-hFy"/>
                         <outlet property="nameLabel" destination="T2c-Dc-WsH" id="jh6-uc-2BG"/>
                         <outlet property="pokeIdLabel" destination="SJl-hF-33p" id="tTh-Nh-Auk"/>
+                        <outlet property="pokedexColorLabel" destination="fWw-mm-vQC" id="uSh-Uj-58T"/>
+                        <outlet property="topView" destination="kFf-85-5A9" id="bGd-Bv-Xta"/>
+                        <outlet property="typeColorLabel" destination="azd-0j-SJ0" id="tYr-gT-Tci"/>
                         <outlet property="typeLabel" destination="Ayx-Yx-y18" id="2Qf-Cg-jN5"/>
+                        <outlet property="weightColorLabel" destination="UUP-xD-AkX" id="qjN-Gw-SKp"/>
                         <outlet property="weightLabel" destination="KhR-3m-9It" id="Yhn-do-DSu"/>
                     </connections>
                 </viewController>

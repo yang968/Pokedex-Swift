@@ -23,6 +23,14 @@ class PokemonViewController: UIViewController {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var attackLabel: UILabel!
     
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var typeColorLabel: UILabel!
+    @IBOutlet weak var defenseColorLabel: UILabel!
+    @IBOutlet weak var heightColorLabel: UILabel!
+    @IBOutlet weak var pokedexColorLabel: UILabel!
+    @IBOutlet weak var weightColorLabel: UILabel!
+    @IBOutlet weak var attackColorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +48,7 @@ class PokemonViewController: UIViewController {
         self.pokemon.downloadPokemonInfo {
             self.updateStats()
             self.updateDescription()
+            self.updateVisuals()
             self.showUI()
             SVProgressHUD.dismiss()
         }
@@ -53,6 +62,13 @@ class PokemonViewController: UIViewController {
         pokeIdLabel.isHidden = true
         weightLabel.isHidden = true
         attackLabel.isHidden = true
+        
+        typeColorLabel.isHidden = true
+        defenseColorLabel.isHidden = true
+        heightColorLabel.isHidden = true
+        pokedexColorLabel.isHidden = true
+        weightColorLabel.isHidden = true
+        attackColorLabel.isHidden = true
     }
     
     func showUI() {
@@ -63,6 +79,13 @@ class PokemonViewController: UIViewController {
         pokeIdLabel.isHidden = false
         weightLabel.isHidden = false
         attackLabel.isHidden = false
+        
+        typeColorLabel.isHidden = false
+        defenseColorLabel.isHidden = false
+        heightColorLabel.isHidden = false
+        pokedexColorLabel.isHidden = false
+        weightColorLabel.isHidden = false
+        attackColorLabel.isHidden = false
     }
     
     func updateDescription() {
@@ -75,6 +98,19 @@ class PokemonViewController: UIViewController {
         heightLabel.text = pokemon.height
         weightLabel.text = pokemon.weight
         typeLabel.text = pokemon.type
+    }
+    
+    func updateVisuals() {
+        print("update Pokemon Visuals")
+        if let typeColor = typeColors[self.pokemon.mainType] {
+            topView.backgroundColor = typeColor
+            typeColorLabel.textColor = typeColor
+            defenseColorLabel.textColor = typeColor
+            heightColorLabel.textColor = typeColor
+            pokedexColorLabel.textColor = typeColor
+            weightColorLabel.textColor = typeColor
+            attackColorLabel.textColor = typeColor
+        }
     }
 
     @IBAction func backButtonPressed(_ sender: UIButton) {

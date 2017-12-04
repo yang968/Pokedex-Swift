@@ -26,6 +26,7 @@ class Pokemon {
     var evoChainURL : String!
     var statsUpdated = false
     var descUpdated = false
+    var mainType : String!
     
     let ATTACK_INDEX = 4
     let DEF_INDEX = 3
@@ -77,6 +78,7 @@ class Pokemon {
             if response.result.isSuccess {
                 let jsonData = JSON(response.result.value!)
                 self.updateStats(json: jsonData)
+                print("Got Pokemon Stats")
             } else {
                 self.type = ""
                 self.defense = ""
@@ -84,6 +86,8 @@ class Pokemon {
                 self.weight = ""
                 self.attack = ""
                 self.nxtEvolution = ""
+                self.mainType = ""
+                print("Failed to Receive Pokemon Stats")
             }
             self.statsUpdated = true
             if self.statsUpdated && self.descUpdated {
@@ -95,8 +99,10 @@ class Pokemon {
             if response.result.isSuccess {
                 let jsonData = JSON(response.result.value!)
                 self.updateDescription(json: jsonData)
+                print("Got Pokemon Description")
             } else {
                 self.description = "Failed to receive data"
+                print("Failed to Receive Pokemon Description")
             }
             self.descUpdated = true
             if self.statsUpdated && self.descUpdated {
@@ -127,6 +133,8 @@ class Pokemon {
         
         let types = json["types"]
         self.type = types[0]["type"]["name"].stringValue.capitalized
+        self.mainType = types[types.count - 1]["type"]["name"].stringValue.capitalized
+        print(mainType)
         for type in 1..<types.count {
             self.type.append("/" + types[type]["type"]["name"].stringValue.capitalized)
         }
