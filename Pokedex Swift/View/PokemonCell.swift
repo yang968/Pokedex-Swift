@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Custom UICollectionViewCell for pokemon image and name
 class PokemonCell: UICollectionViewCell {
     
     @IBOutlet weak var thumbImg : UIImageView!

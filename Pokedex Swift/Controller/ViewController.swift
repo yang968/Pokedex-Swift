@@ -47,7 +47,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func parsePokemonCSV() {
-        
         let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")!
         
         do {
@@ -139,6 +138,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         view.endEditing(true)
     }
     
+    //MARK: - UISearchBarDelegate functions
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }

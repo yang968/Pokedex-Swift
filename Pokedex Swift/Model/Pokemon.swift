@@ -39,39 +39,6 @@ class Pokemon {
         self.descURL = URL_DESCRIPTION + String(pokedexId) + "/"
         
     }
-    /*
-    func downloadPokemonInfo(completed: @escaping DownloadComplete) {
-        Alamofire.request(pokemonURL).responseJSON { (response) in
-            if response.result.isSuccess {
-                let jsonData = JSON(response.result.value!)
-                self.updateStats(json: jsonData)
-                self.downloadDescription{}
-            } else {
-                self.type = ""
-                self.defense = ""
-                self.height = ""
-                self.weight = ""
-                self.attack = ""
-                self.nxtEvolution = ""
-            }
-            completed()
-        }
-    }
-    
-    func downloadDescription(completed: @escaping DownloadComplete) {
-        Alamofire.request(descURL).responseJSON { (response) in
-            if response.result.isSuccess {
-                let jsonData = JSON(response.result.value!)
-                self.updateDescription(json: jsonData)
-                //self.evoChainURL = jsonData["evolution_chain"]["url"].stringValue
-                //print("evo: " + self.evoChainURL)
-            } else {
-                self.description = "Failed to receive data"
-            }
-            completed()
-        }
-    }
-    */
     
     func downloadPokemonInfo(completed: @escaping DownloadComplete) {
         Alamofire.request(pokemonURL).responseJSON { (response) in
